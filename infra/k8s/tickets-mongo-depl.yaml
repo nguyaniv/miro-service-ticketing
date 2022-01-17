@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: tickets-mongo-depl
+
 spec:
   replicas: 1
   selector:
@@ -15,6 +16,27 @@ spec:
       containers:
         - name: tickets-mongo
           image: mongo
+          args: ["--dbpath", "data/db"]
+          livenessProbe:
+            exec:
+              command:
+                - mongo
+                - --disableImplicitSessions
+                - --eval
+                - "db.adminCommand('ping')"
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+            successThreshold: 1
+            failureThreshold: 6
+      #     volumeMounts:
+      #       - mountPath: /data/db
+      #         name: tickets-data
+      # volumes:
+      #   - name: tickets-data
+      #     persistentVolumeClaim:
+      #       claimName: tickets-pvc
+
 ---
 apiVersion: v1
 kind: Service

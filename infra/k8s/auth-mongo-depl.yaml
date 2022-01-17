@@ -15,6 +15,27 @@ spec:
       containers:
         - name: auth-mongo
           image: mongo
+          args: ["--dbpath", "data/db"]
+          livenessProbe:
+            exec:
+              command:
+                - mongo
+                - --disableImplicitSessions
+                - --eval
+                - "db.adminCommand('ping')"
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+            successThreshold: 1
+            failureThreshold: 6
+      #     volumeMounts:
+      #       - mountPath: /data/db
+      #         name: auth
+      # volumes:
+      #   - name: auth
+      #     persistentVolumeClaim:
+      #       claimName: auth-pvc
+
 ---
 apiVersion: v1
 kind: Service

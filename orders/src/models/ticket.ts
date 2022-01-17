@@ -5,12 +5,23 @@ interface TicketAttrs {
   id: string;
   title: string;
   price: number;
+  date: string;
+  location: string;
+  quantity: number;
+  description: string;
+  image: string;
 }
 
 export interface TicketDoc extends mongoose.Document {
   title: string;
   price: number;
   version: number;
+  date: string;
+  location: string;
+  quantity: number;
+  description: string;
+  image: string;
+
   isReserved(): Promise<boolean>;
 }
 
@@ -28,7 +39,28 @@ const ticketSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    image: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
+    date: {
+      type: String,
+      required: true,
+    },
+    location: {
+      type: String,
+      required: true,
+    },
     price: {
+      type: Number,
+      required: true,
+      min: 0,
+    },
+    quantity: {
       type: Number,
       required: true,
       min: 0,
@@ -58,6 +90,11 @@ ticketSchema.statics.build = (attrs: TicketAttrs) => {
     _id: attrs.id,
     title: attrs.title,
     price: attrs.price,
+    date: attrs.date,
+    location: attrs.location,
+    quantity: attrs.quantity,
+    description: attrs.description,
+    image: attrs.image,
   });
 };
 

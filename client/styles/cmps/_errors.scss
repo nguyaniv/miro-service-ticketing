@@ -1,0 +1,18 @@
+.alert-danger {
+  background-color: lightcoral;
+  width: 90%;
+  border-radius: 2rem;
+  text-align: center;
+  padding: 1rem;
+  h4 {
+    font-size: 1.4rem;
+  }
+  ul {
+    list-style: none;
+    padding: 1.5rem;
+
+    li {
+      font-size: 1.2rem;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.container {
+  margin: 0 auto;
+  max-width: 120rem;
+  min-height: 150vh;
+  background-color: #fff;
+
+  @include respond(tab-land) {
+    margin-top: 9rem;
+    padding-top: 0.5rem;
+  }
+  @include respond(tab-port) {
+    margin-top: 4rem; // 900
+  }
+  @include respond(phone) {
+    margin-bottom: 0;
+    margin-top: 4rem;
+  }
+}

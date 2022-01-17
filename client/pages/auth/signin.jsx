@@ -18,29 +18,33 @@ const signin = () => {
     await doRequest();
   };
   return (
-    <form onSubmit={onSubmit}>
-      <h1>sign in bro</h1>
-      <div className="form-group">
-        <label htmlFor="">Email Adress</label>
+    <form className="sign-form" onSubmit={onSubmit}>
+      <h1>Sign in</h1>
+      <div className="sign-form__group">
+        <label htmlFor="email">Email Adress</label>
         <input
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="form-control"
           type="text"
+          placeholder="email"
+          id="email"
         />
       </div>
-      <div className="form-group">
-        <label htmlFor="">Password</label>
+      <div className="sign-form__group">
+        <label htmlFor="password">Password</label>
         <input
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="form-control"
+          className="sign-form__group"
           type="password"
+          placeholder="password"
+          id="password"
         />
       </div>
       {errors}
 
-      <button className="btn btn-primary">Sign in</button>
+      <button className="btn-auth">Sign in</button>
     </form>
   );
 };

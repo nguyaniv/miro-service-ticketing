@@ -1,0 +1,36 @@
+.sign-form {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 40rem;
+  width: 50rem;
+  border: 1px solid black;
+  margin: 10rem auto;
+  border-radius: 1rem;
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    label {
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+      font-family: inherit;
+    }
+    input {
+      border: none;
+      border-bottom: 1px solid rgb(199, 195, 195);
+      font-size: 2rem;
+      font-family: inherit;
+      width: 100%;
+      &::placeholder {
+        color: rgb(199, 195, 195);
+        margin-left: 2rem;
+        font-size: 2rem;
+      }
+    }
+  }
+}
