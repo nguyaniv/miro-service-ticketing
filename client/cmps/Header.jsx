@@ -1,32 +1,26 @@
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import Navbar from './Navbar/Navbar';
 const Header = ({ currentUser }) => {
-  const links = [
-    !currentUser && { label: 'Sign Up', href: '/auth/signup' },
-    !currentUser && { label: 'Sign In', href: '/auth/signin' },
-    currentUser && { label: 'Sell Tickets', href: '/tickets/new' },
-    currentUser && { label: 'My orders', href: '/orders/' },
-    currentUser && { label: 'Sign Out', href: '/auth/signout' },
-  ]
-    .filter((linkConfing) => linkConfing)
-    .map(({ label, href }) => {
-      return (
-        <li className="nav-item" key={href}>
-          <Link href={href}>
-            <a className="nav-link">{label}</a>
-          </Link>
-        </li>
-      );
-    });
-
   return (
-    <nav className="navbar navbar-light bg-light">
-      <Link href="/">
-        <a className="navbar-brand">gitTix</a>
-      </Link>
-      <div className="d-flex justify-content-end">
-        <ul className="nav d-flex align-items-center">{links}</ul>
+    <header className="header">
+      <div className="header__content">
+        <h1>Get Your tickets</h1>
+        <h3>On MyTix</h3>
       </div>
-    </nav>
+      <div className="bg-video">
+        <video
+          className="bg-video__content"
+          autoPlay={true}
+          loop={true}
+          muted
+          preload=""
+          playsInline={true}
+        >
+          <source src="images/bg-video.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </header>
   );
 };
 

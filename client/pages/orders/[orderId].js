@@ -18,6 +18,7 @@ const OrderShow = ({ order, currentUser }) => {
   const stripeKey =
     'pk_test_51K44kBJxYBpC0uuAGqrJDkALjmXgDjlbOhHAaDSfXwtIvLiwhoF6pFiaTTZvhi2byX4SP1NrzIPXHmy49cepEfXG00h1IN8Sdy';
 
+  const ammout = order.order.ticket.price * order.order.ticket.quantity;
   useEffect(() => {
     const findTimeLeft = () => {
       const msLeft = new Date(order.order.expiresAt) - new Date();
@@ -30,16 +31,16 @@ const OrderShow = ({ order, currentUser }) => {
     };
   }, []);
   if (timeLeft < 0) {
-    return <div>Order expired</div>;
+    return <div className="order">Order expired</div>;
   }
 
   return (
-    <div>
+    <div className="order">
       {timeLeft} seconds untill order expires
       <StripeCheckout
         token={({ id }) => doRequest({ token: id })}
         stripeKey={stripeKey}
-        amount={order.order.ticket.price * 100}
+        amount={ammout * 100}
         email={currentUser.email}
       />
       {errors}

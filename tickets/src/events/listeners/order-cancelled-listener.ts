@@ -20,8 +20,13 @@ export class OrderCancelledListener extends Listener<OrderCancelledEvent> {
       userId: ticket.userId,
       title: ticket.title,
       price: ticket.price,
+      quantity: ticket.quantity,
       orderId: ticket.orderId,
       version: ticket.version,
+      date: ticket.date,
+      location: ticket.location,
+      description: ticket.description,
+      image: ticket.image,
     });
     msg.ack();
   }

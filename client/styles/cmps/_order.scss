@@ -1,0 +1,20 @@
+.order {
+  display: grid;
+  grid-template-columns: min-content repeat(5, 1fr);
+
+  &:first-of-type {
+    margin-top: 30vh;
+  }
+  &__menu {
+    background-color: darkgrey;
+    font-size: 2rem;
+    text-align: center;
+  }
+  &__title,
+  &__status,
+  &__date {
+    text-align: center;
+    font-size: 2rem;
+    background-color: cornflowerblue;
+  }
+}

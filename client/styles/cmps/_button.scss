@@ -1,0 +1,26 @@
+.btn-auth {
+  border: none;
+  width: 90%;
+  border-radius: 5rem;
+  padding: 2rem 0;
+  font-size: 2rem;
+  font-weight: 700;
+  cursor: pointer;
+  background-image: linear-gradient(to right, rgb(28, 44, 190), rgb(29, 16, 88));
+  color: #fff;
+  transition: all 0.2s;
+  &:hover {
+    letter-spacing: 3px;
+  }
+}
+
+.btn-primary {
+  border: none;
+  color: rgb(224, 222, 222);
+  background-color: rgb(2, 108, 223);
+  padding: 1.2rem 1.2rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: Averta, Helvetica Neue, Helvetica, Arial, sans-serif;
+}

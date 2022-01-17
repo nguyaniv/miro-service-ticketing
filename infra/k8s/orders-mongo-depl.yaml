@@ -15,6 +15,26 @@ spec:
       containers:
         - name: orders-mongo
           image: mongo
+          args: ["--dbpath", "data/db"]
+          livenessProbe:
+            exec:
+              command:
+                - mongo
+                - --disableImplicitSessions
+                - --eval
+                - "db.adminCommand('ping')"
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+            successThreshold: 1
+            failureThreshold: 6
+      #     volumeMounts:
+      #       - mountPath: /data/db
+      #         name: orders-data
+      # volumes:
+      #   - name: orders-data
+      #     persistentVolumeClaim:
+      #       claimName: orders-pvc
 ---
 apiVersion: v1
 kind: Service

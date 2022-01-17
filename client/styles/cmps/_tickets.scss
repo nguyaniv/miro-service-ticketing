@@ -1,0 +1,30 @@
+.tickets {
+  margin-top: 10rem;
+  display: grid;
+  grid-template-rows: repeat(auto-fill, 8rem);
+  grid-row-gap: 2rem;
+
+  &__item {
+    display: grid;
+    grid-template-columns: 17rem auto 15rem;
+    width: 100%;
+    font-size: 2rem;
+    border-bottom: 1px solid rgb(209, 209, 209);
+    padding-bottom: 2rem;
+    align-items: center;
+    text-align: center;
+    &--date,
+    &--details {
+      list-style: none;
+      line-height: 1.2;
+      li:first-child {
+        font-weight: 600;
+        font-size: 1.8rem;
+      }
+      li:last-child {
+        color: rgb(158, 158, 158);
+        font-size: 1.4rem;
+      }
+    }
+  }
+}

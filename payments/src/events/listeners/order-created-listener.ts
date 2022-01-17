@@ -12,6 +12,7 @@ export class OrderCreatedListener extends Listener<OrderCreactedEvent> {
       status: data.status,
       userId: data.userId,
       version: data.version,
+      quantity: data.ticket.quantity,
     });
     await order.save();
     msg.ack();

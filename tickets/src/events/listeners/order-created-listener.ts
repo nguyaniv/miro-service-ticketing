@@ -23,10 +23,15 @@ export class OrderCreatedListener extends Listener<OrderCreactedEvent> {
     await new TicketUpdatedPublisher(this.client).publish({
       id: ticket.id,
       price: ticket.price,
+      quantity: ticket.quantity,
       title: ticket.title,
       orderId: ticket.orderId,
       userId: ticket.userId,
       version: ticket.version,
+      date: ticket.date,
+      location: ticket.location,
+      description: ticket.description,
+      image: ticket.image,
     });
     // ack the message
     msg.ack();

@@ -7,6 +7,7 @@ interface OrderAttrs {
   status: OrderStatus;
   userId: String;
   price: number;
+  quantity: number;
 }
 
 interface OrderDoc extends mongoose.Document {
@@ -14,6 +15,7 @@ interface OrderDoc extends mongoose.Document {
   status: OrderStatus;
   userId: String;
   price: number;
+  quantity: number;
 }
 
 interface OrderModel extends mongoose.Model<OrderDoc> {
@@ -26,6 +28,10 @@ const orderSchema = new mongoose.Schema(
       required: true,
     },
     price: {
+      type: Number,
+      required: true,
+    },
+    quantity: {
       type: Number,
       required: true,
     },
@@ -52,6 +58,7 @@ orderSchema.statics.build = (attrs: OrderAttrs) => {
     price: attrs.price,
     userId: attrs.userId,
     status: attrs.status,
+    quantity: attrs.quantity,
   });
 };
 

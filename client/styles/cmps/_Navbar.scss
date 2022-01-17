@@ -1,0 +1,67 @@
+.navbar {
+  width: 100vw;
+  background-image: linear-gradient(to right, rgb(21, 21, 22), rgb(7, 27, 206));
+  height: 10rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transition: all 0.5s;
+  position: relative;
+  top: 0;
+  z-index: 10;
+  opacity: 1;
+  transition: all 0.3s;
+
+  .menu {
+    color: #fff;
+    font-size: 3rem;
+    display: none;
+
+    @include respond(phone) {
+      display: block;
+      width: 3rem;
+      height: 3rem;
+      cursor: pointer;
+    }
+  }
+  &__logo {
+    font-size: 2rem;
+    color: #fff;
+  }
+  &__catagories {
+    display: flex;
+    list-style: none;
+    width: 30%;
+  }
+
+  &__cta {
+    display: flex;
+    list-style: none;
+    width: 30%;
+    justify-content: flex-end;
+
+    @include respond(phone) {
+      display: none;
+    }
+  }
+  &__item {
+    color: #fff;
+    font-size: 2rem;
+    margin: 0 1rem;
+    transition: all 0.2s;
+  }
+
+  &__link {
+    padding: 1rem;
+  }
+}
+
+.navbar.active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to right, rgb(199, 199, 207), rgb(42, 43, 49));
+  height: 5rem;
+  opacity: 0.8;
+  transition: all 0.3s;
+}

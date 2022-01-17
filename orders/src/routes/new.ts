@@ -60,6 +60,7 @@ router.post(
       ticket: {
         id: ticket.id,
         price: ticket.price,
+        quantity: ticket.quantity,
       },
     });
     res.status(201).send({ order });
